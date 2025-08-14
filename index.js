@@ -25,13 +25,23 @@ mongoose.connection.on("error", (err) => {
   console.error("❌ MongoDB connection error", err);
 });
 
-// 6. Middlewares
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173",
+//       "https://frontend-paymeny.vercel.app"
+//     ],
+//     credentials: true,
+//   })
+// );
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: true,
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(cookieParser());
